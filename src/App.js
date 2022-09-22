@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+const App = () => {
+  const [count, setcount] = useState(0);
 
-function App() {
+  const startTime = () => {
+    setInterval(() => {
+      setcount(count + 1);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    startTime();
+  }, [count]);
+  
+    
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Timer Application</h2>
+
+      <h3>{count}</h3>
+
+      <button onClick={startTime}>Start</button>
+      <button onClick={""}>End</button>
     </div>
   );
-}
+};
 
 export default App;
